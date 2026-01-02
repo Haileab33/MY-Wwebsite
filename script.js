@@ -57,6 +57,42 @@
       applyTheme(next);
       localStorage.setItem('theme', next);
     });
+    const slidesContainer = document.getElementById('slides');
+    const prevBtn = document.querySelector('.slide-btn.prev');
+    const nextBtn = document.querySelector('.slide-btn.next');
+    let slideIndex = 0;
+    function getSlideWidth() {
+  if (!slidesContainer || slidesContainer.children.length === 0) return 0;
+  const first = slidesContainer.children[0];
+  const rect = first.getBoundingClientRect();
+  const style = getComputedStyle(first);
+  const marginRight = parseFloat(style.marginRight || '0');
+  return rect.width + marginRight;
+}
+
+function updateSlide() {
+  if (!slidesContainer || slidesContainer.children.length === 0) return;
+  const slideWidth = getSlideWidth();
+  slidesContainer.style.transform =
+    `translateX(${-slideIndex * slideWidth}px)`;
+}
+
+/* NEXT BUTTON */
+nextBtn?.addEventListener('click', () => {
+  if (!slidesContainer) return;
+  slideIndex = Math.min(slideIndex + 1, slidesContainer.children.length - 1);
+  updateSlide();
+});
+
+/* PREVIOUS BUTTON */
+prevBtn?.addEventListener('click', () => {
+  if (!slidesContainer) return;
+  slideIndex = Math.max(slideIndex - 1, 0);
+  updateSlide();
+});
+
+/* UPDATE ON RESIZE */
+window.addEventListener('resize', updateSlide);
 
     // Modal
     const modalOverlay = document.getElementById('modal-overlay');
