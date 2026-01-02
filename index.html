@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Haileab Web — Web Developer & Graphic Designer</title>
+  <meta name="description" content="Haileab Web — Web Developer & Graphic Designer. Building delightful, accessible, and fast websites; visual branding and graphics." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#0EA5A4" />
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Haileab Web home">
+        <!-- logo.jpg should be in the same folder; circular small -->
+        <img src="logo.jpg" alt="Haileab Web logo" class="logo-img" onerror="this.style.display='none'">
+        <span class="brand-text">Haileab Web</span>
+      </a>
+
+      <div class="header-controls">
+        <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM1 13h3v-2H1v2zm10-9h2V1h-2v3zm7.66 1.05l1.41-1.41-1.8-1.79-1.42 1.42 1.81 1.78zM17 13h3v-2h-3v2zM12 7a5 5 0 100 10 5 5 0 000-10zm4.24 10.16l1.79 1.81 1.41-1.41-1.81-1.79-1.39 1.39zM11 23h2v-3h-2v3zM4.34 18.95l-1.42 1.41 1.8 1.79 1.41-1.41-1.79-1.79z"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3c.17 0 .34 0 .5.02A7 7 0 0021 12.79z"/></svg>
+        </button>
+
+        <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+
+      <nav id="primary-nav" class="nav" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="header-accent" aria-hidden="true"></div>
+  </header>
+
+  <main id="home">
+    <!-- Hero -->
+    <section class="hero container" id="hero">
+      <div class="hero-text">
+        <h1>Hi, I’m Haileab — Web Developer & Graphic Designer</h1>
+        <p class="lead">I build fast, accessible websites and create memorable visual identities.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#portfolio">View Portfolio</a>
+          <a class="btn btn-outline" href="#contact">Contact Me</a>
+        </div>
+        <div class="skills-inline" aria-hidden="false">
+          <div>
+            <h4>Web</h4>
+            <div class="icons">
+              <span class="chip">HTML5</span>
+              <span class="chip">CSS3</span>
+              <span class="chip">JavaScript</span>
+            </div>
+          </div>
+          <div>
+            <h4>Design</h4>
+            <div class="icons">
+              <span class="chip">Figma</span>
+              <span class="chip">Illustrator</span>
+              <span class="chip">Photoshop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image" aria-hidden="true">
+        <!-- new hero image (workspace + sketch) -->
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=98d9c7c7b1b9c1b5a86b7a3b2f1e3b7b" alt="Workspace with laptop and design sketches" loading="lazy">
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="container section">
+      <div class="section-grid">
+        <div>
+          <h2>About</h2>
+          <p>I'm a versatile Web Developer and Graphic Designer who blends clean code with strong visual thinking. I focus on accessible, performant sites and memorable brand graphics. I enjoy turning complex problems into simple, beautiful solutions.</p>
+          <h3>Experience & Education</h3>
+          <ul>
+            <li>Web Development — multiple freelance projects, JavaScript, responsive design</li>
+            <li>Graphic Design — branding, logos, posters, social assets</li>
+            <li>Self-taught + practical projects on GitHub</li>
+          </ul>
+        </div>
+        <div class="about-profile">
+          <!-- updated about image -->
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=9c8e2fb0f2e2f1ea45a0f3b1e9c9f4f2" alt="PC workstation" loading="lazy">
+          <p class="muted">Design philosophy: clarity, empathy, and performance.</p>
+        </div>
+      </div>
+
+      <!-- My skills -->
+      <div class="skills-section" id="skills">
+        <h3>My Skills</h3>
+        <div class="skill" data-percent="90">
+          <div class="skill-header"><span>HTML</span><span class="skill-value">90%</span></div>
+          <div class="progress"><div class="progress-fill" style="width:0%" aria-hidden="true"></div></div>
+        </div>
+        <div class="skill" data-percent="90">
+          <div class="skill-header"><span>CSS</span><span class="skill-value">90%</span></div>
+          <div class="progress"><div class="progress-fill" style="width:0%" aria-hidden="true"></div></div>
+        </div>
+        <div class="skill" data-percent="60">
+          <div class="skill-header"><span>JavaScript</span><span class="skill-value">60%</span></div>
+          <div class="progress"><div class="progress-fill" style="width:0%" aria-hidden="true"></div></div>
+        </div>
+        <div class="skill" data-percent="50">
+          <div class="skill-header"><span>React</span><span class="skill-value">50%</span></div>
+          <div class="progress"><div class="progress-fill" style="width:0%" aria-hidden="true"></div></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="container section">
+      <h2>Portfolio</h2>
+      <p class="muted">Web development projects and a design slideshow below.</p>
+
+      <h3>Web Development</h3>
+      <div class="projects-grid">
+        <article class="project-card">
+          <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=4b2f45e63e7709d8c1c18df5ae5a7c2b" alt="Calculator project thumbnail" loading="lazy">
+          <div class="project-body">
+            <h4>Calculator</h4>
+            <p>A simple and responsive calculator built with vanilla JavaScript.</p>
+            <p class="muted">Technologies: HTML, CSS, JavaScript</p>
+            <a class="project-link" href="https://github.com/Haileab33/calculator.git" target="_blank" rel="noopener">View repo</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6f4eae865b9a2b0f4f1f8b61b4da8d0a" alt="Landing page project thumbnail" loading="lazy">
+          <div class="project-body">
+            <h4>Landing Page</h4>
+            <p>Responsive marketing landing page with animations and accessible form controls.</p>
+            <p class="muted">Technologies: HTML, CSS, JavaScript</p>
+            <a class="project-link" href="https://github.com/Haileab33/Landing-page.git" target="_blank" rel="noopener">View repo</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=2d6e6e0b15b6d6a44b4432ff9f7d8b38" alt="Todo list project thumbnail" loading="lazy">
+          <div class="project-body">
+            <h4>Todo List</h4>
+            <p>A small todo app demonstrating DOM manipulation and local storage persistence.</p>
+            <p class="muted">Technologies: HTML, CSS, JavaScript</p>
+            <a class="project-link" href="https://github.com/Haileab33/todo-list.git" target="_blank" rel="noopener">View repo</a>
+          </div>
+        </article>
+      </div>
+
+      <h3>Graphic Design — Slideshow</h3>
+      <p class="muted">Sample creative images from Unsplash (placeholder live photos). Click arrows to navigate.</p>
+      <div class="slideshow" aria-roledescription="carousel" aria-label="Graphic design slideshow">
+        <button class="slide-btn prev" aria-label="Previous slide">&#10094;</button>
+        <div class="slides" id="slides">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=98d9c7c7b1b9c1b5a86b7a3b2f1e3b7b" alt="Photoshop workspace sample" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=bbf54f584edc3f483c4d3b0f7b2e0c3e" alt="Branding sample" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=e6f3aef20e507a6cf8c6bcd3a2bfa6c8" alt="Layout design sample" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=b0d4c1ea1b2a0d6e1d0e5f384c9c6b4e" alt="Social media graphic sample" loading="lazy">
+        </div>
+        <button class="slide-btn next" aria-label="Next slide">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="container section">
+      <h2>Services</h2>
+      <div class="services-grid">
+        <div class="service">
+          <h4>Custom Websites</h4>
+          <p>Responsive, SEO-friendly websites tailored to your needs.</p>
+        </div>
+        <div class="service">
+          <h4>E-Commerce & Landing Pages</h4>
+          <p>High-converting landing pages and small e-commerce sites.</p>
+        </div>
+        <div class="service">
+          <h4>Branding & Logo Design</h4>
+          <p>Visual identity systems, logos and brand collateral.</p>
+        </div>
+        <div class="service">
+          <h4>Social & Print Graphics</h4>
+          <p>Social assets, posters, and print-ready designs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="container section">
+      <h3>What clients say</h3>
+      <div class="testimonials-grid">
+        <blockquote>
+          <p>"Haileab delivered a beautiful, fast landing page — the result exceeded expectations and launched our campaign on time."</p>
+          <cite>— Amanuel, Product Manager</cite>
+        </blockquote>
+        <blockquote>
+          <p>"The branding package gave our startup a confident visual voice. Quick, thoughtful, and reliable."</p>
+          <cite>— Sarah, Founder</cite>
+        </blockquote>
+        <blockquote>
+          <p>"Technical skills and design sensibility — Haileab is a rare combination."</p>
+          <cite>— Carlos, CEO</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container section">
+      <h2>Contact</h2>
+      <p class="muted">Have a project? Tell me about it — I’ll get back to you shortly.</p>
+      <div class="contact-grid">
+        <div class="contact-form-wrapper" aria-live="polite">
+          <form id="contact-form" name="contact" class="contact-form" method="POST" action="https://formspree.io/f/xzdbvrow">
+            <input type="hidden" name="_replyto" id="_replyto" value="">
+            <input type="hidden" name="_subject" value="Thanks for contacting Haileab Web — confirmation" />
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" required placeholder="Your full name">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+251..." >
+            <label for="projectType">Project type</label>
+            <select id="projectType" name="projectType" required>
+              <option value="Website">Website</option>
+              <option value="Branding">Branding</option>
+              <option value="Social Media Graphics">Social Media Graphics</option>
+              <option value="Other">Other</option>
+            </select>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="Your email address">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project..."></textarea>
+            <button type="submit" class="btn">Send message</button>
+            <p id="form-status" class="muted" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+
+        <aside class="contact-details">
+          <h3>Get in touch</h3>
+          <p>Email: <a id="contact-email" href="mailto:haileabgashaw386@gmail.com">haileabgashaw386@gmail.com</a> </p>
+          <div class="social-icons" role="list">
+            <!-- Include Font Awesome CDN for social media icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><!-- Loads icon library -->
+
+<!-- Container for social media links -->
+<div class="social-media-links"><!-- Wrapper for all social icons -->
+
+    <!-- Facebook social media link -->
+    <a href="https://www.facebook.com" target="_blank" class="social-link facebook"><!-- Facebook link -->
+        <i class="fab fa-facebook-f"></i><!-- Facebook icon -->
+    </a><!-- End Facebook link -->
+
+    <!-- Twitter social media link -->
+    <a href="https://twitter.com/Haileab59472713" target="_blank" class="social-link twitter"><!-- Twitter link -->
+        <i class="fab fa-x-twitter"></i><!-- Twitter icon -->
+    </a><!-- End Twitter link -->
+
+    <!-- Instagram social media link -->
+    <a href="https://instagram.com/_hhaile_" target="_blank" class="social-link instagram"><!-- Instagram link -->
+        <i class="fab fa-instagram"></i><!-- Instagram icon -->
+    </a><!-- End Instagram link -->
+
+    <!-- LinkedIn social media link -->
+    <a href="https://www.linkedin.com/in/haileab-gashaw-5b2967263" target="_blank" class="social-link linkedin"><!-- LinkedIn link -->
+        <i class="fab fa-linkedin-in"></i><!-- LinkedIn icon -->
+    </a><!-- End LinkedIn link -->
+
+    <!-- YouTube social media link -->
+    <a href="https://t.me/Lel_1717" target="_blank" class="social-link telegram"><!-- Telegram link -->
+        <i class="fab fa-telegram"></i><!-- Telegram icon -->
+    </a><!-- End Telegram link -->
+
+</div><!-- End social media links container -->
+
+<!-- Inline styling for social media icons -->
+<style>
+    
+</style><!-- End inline styles -->
+
+          </div>
+          <p class="muted">I respond within 48 hours. For urgent enquiries contact me directly by Telegram.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <br><div>© <span id="year"></span> Haileab Web</div>
+      <nav class="footer-nav a" aria-label="Footer">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      
+    </div>
+  </footer>
+
+  <!-- Modal container for thank-you popup -->
+  <!-- <div id="modal-overlay" class="modal-overlay" hidden aria-hidden="true">
+    <div id="modal-content" class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button id="modal-close" class="modal-close" aria-label="Close thank you dialog">&times;</button>
+      <div id="modal-body" tabindex="-1"></div>
+    </div>
+  </div> -->
+
+  <script src="script.js" defer></script>
+</body>
+</html>
