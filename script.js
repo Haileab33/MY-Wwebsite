@@ -117,29 +117,5 @@ document.addEventListener("DOMContentLoaded", () => {
         email: form.email.value.trim(),
         message: form.message.value.trim()
       };
-
-      fetch("https://script.google.com/macros/s/AKfycbxUiNrhIeuIQA74_RcMGzUt2s3sdDnLegvQoPu92Nt2lqXGIRBw17fiyj9gKV3lxUkb/exec", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      })
-      .then(res => res.text())
-      .then(responseText => {
-        if (responseText === "success") {
-          status.textContent = "Thank you! A confirmation email has been sent.";
-          status.style.color = "#16a34a";
-          form.reset();
-        } else {
-          status.textContent = "Something went wrong. Please try again.";
-          status.style.color = "#b91c1c";
-        }
-      })
-      .catch(err => {
-        console.error(err);
-        status.textContent = "Something went wrong. Please try again.";
-        status.style.color = "#b91c1c";
-      });
-    });
-  }
-
-});
+    }
+  });
