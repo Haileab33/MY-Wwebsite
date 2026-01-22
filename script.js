@@ -55,34 +55,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // SLIDESHOW
   const slidesContainer = document.getElementById("slides");
-  const prevBtn = document.querySelector(".slide-btn.prev");
-  const nextBtn = document.querySelector(".slide-btn.next");
   let slideIndex = 0;
 
-  function getSlideWidth() {
-    if (!slidesContainer || !slidesContainer.children.length) return 0;
-    const slide = slidesContainer.children[0];
-    const rect = slide.getBoundingClientRect();
-    const style = getComputedStyle(slide);
-    return rect.width + parseFloat(style.marginRight || 0);
-  }
+  if (slidesContainer) {
+    const prevBtn = document.querySelector(".slide-btn.prev");
+    const nextBtn = document.querySelector(".slide-btn.next");
 
-  function updateSlide() {
-    const width = getSlideWidth();
-    slidesContainer.style.transform = `translateX(${-slideIndex * width}px)`;
-  }
+    function getSlideWidth() {
+      if (!slidesContainer.children.length) return 0;
+      const slide = slidesContainer.children[0];
+      const rect = slide.getBoundingClientRect();
+      const style = getComputedStyle(slide);
+      return rect.width + parseFloat(style.marginRight || 0);
+    }
 
-  nextBtn?.addEventListener("click", () => {
-    slideIndex = Math.min(slideIndex + 1, slidesContainer.children.length - 1);
+    function updateSlide() {
+      const width = getSlideWidth();
+      const maxIndex = Math.max(0, slidesContainer.children.length - 1);
+      if (slideIndex > maxIndex) slideIndex = maxIndex;
+      if (!width) return;
+      slidesContainer.style.transform = `translateX(${-slideIndex * width}px)`;
+    }
+
+    nextBtn?.addEventListener("click", () => {
+      slideIndex = Math.min(slideIndex + 1, slidesContainer.children.length - 1);
+      updateSlide();
+    });
+
+    prevBtn?.addEventListener("click", () => {
+      slideIndex = Math.max(slideIndex - 1, 0);
+      updateSlide();
+    });
+
+    window.addEventListener("resize", updateSlide);
+    // initialize and recalc after images load
     updateSlide();
-  });
-
-  prevBtn?.addEventListener("click", () => {
-    slideIndex = Math.max(slideIndex - 1, 0);
-    updateSlide();
-  });
-
-  window.addEventListener("resize", updateSlide);
+    const imgs = slidesContainer.querySelectorAll('img');
+    imgs.forEach(img => {
+      if (!img.complete) img.addEventListener('load', updateSlide);
+    });
+  }
 
   // SKILLS ANIMATION
   const skills = document.querySelectorAll(".skill");
@@ -107,8 +119,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (form) {
     form.addEventListener("submit", e => {
       e.preventDefault();
-      status.textContent = "Sending...";
-      status.style.color = "#0ea5a4";
+      if (status) {
+        status.textContent = "Sending...";
+        status.style.color = "#0ea5a4";
+      }
 
       const data = {
         name: form.name.value.trim(),
@@ -117,5 +131,17 @@ document.addEventListener("DOMContentLoaded", () => {
         email: form.email.value.trim(),
         message: form.message.value.trim()
       };
-    }
-  });
+
+      // Simulate form submission
+      setTimeout(() => {
+        if (status) {
+          status.textContent = "Message sent successfully!";
+          status.style.color = "#22c55e";
+        }
+        form.reset();
+      }, 1000);
+    });
+  }
+
+});
+
