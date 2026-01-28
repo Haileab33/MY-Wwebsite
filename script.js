@@ -117,29 +117,50 @@ document.addEventListener("DOMContentLoaded", () => {
   const status = document.getElementById("form-status");
 
   if (form) {
-    form.addEventListener("submit", e => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       if (status) {
         status.textContent = "Sending...";
         status.style.color = "#0ea5a4";
       }
 
-      const data = {
-        name: form.name.value.trim(),
-        phone: form.phone.value.trim(),
-        projectType: form.projectType.value,
-        email: form.email.value.trim(),
-        message: form.message.value.trim()
-      };
+      // Populate hidden _replyto for Formspree
+      const replyEl = document.getElementById("_replyto");
+      if (replyEl) replyEl.value = form.email?.value?.trim() || "";
 
-      // Simulate form submission
-      setTimeout(() => {
-        if (status) {
-          status.textContent = "Message sent successfully!";
-          status.style.color = "#22c55e";
+      const action = form.getAttribute("action") || window.location.href;
+      const formData = new FormData(form);
+
+      try {
+        const resp = await fetch(action, {
+          method: "POST",
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (resp.ok) {
+          if (status) {
+            status.textContent = "Message sent successfully! Thank you";
+            status.style.color = "#22c55e";
+          }
+          form.reset();
+        } else {
+          let msg = "Failed to send message. Please try again.";
+          try {
+            const data = await resp.json();
+            if (data && data.error) msg = data.error;
+          } catch (err) {}
+          if (status) {
+            status.textContent = msg;
+            status.style.color = "#ef4444";
+          }
         }
-        form.reset();
-      }, 1000);
+      } catch (err) {
+        if (status) {
+          status.textContent = "Network error. Please try again.";
+          status.style.color = "#ef4444";
+        }
+      }
     });
   }
 
